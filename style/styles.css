@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     background: #05f0dc;
+    background-image: url(../img/space.jpeg);
 }
 
 nav {
@@ -153,13 +154,14 @@ ul li a:hover {
 }
 
 .tech {
-    background-color: #302118;
+    /*background-color: #302118;*/
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 0 10px;
     margin-bottom: 40px;
     box-sizing: border-box;
+    box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.3);
 }
 
 .tech h3 {
@@ -176,6 +178,7 @@ ul li a:hover {
     border-radius: 5px;
     margin-top: 24px;
     transition: transform 0.3s;
+    box-shadow: 5px 5px 8px rgba(192, 187, 187, 0.7);
 }
 
 .box img:hover {
@@ -219,9 +222,13 @@ ul li a:hover {
     gap: 40px; /* Espacio horizontal entre tarjeta y descripción */
 }
 
-.project-card-r {
+.project-card-r, .project-card-l {
+    position: relative; /* Necesario para los elementos flotantes */
     width: 200px;
     height: 200px;
+}
+
+.project-card-r {
     transform: rotate(5deg);
 }
 
@@ -235,8 +242,6 @@ ul li a:hover {
 }
 
 .project-card-l {
-    width: 200px;
-    height: 200px;
     transform: rotate(-5deg);
 }
 
@@ -252,8 +257,19 @@ ul li a:hover {
 .project-description {
     max-width: 400px;
     padding: 10px;
+    background: rgba(47, 51, 85, 0.6);
+    color: #a8a6a6;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(212, 6, 6, 0.4);
+    transition: background 0.8s ease-in-out, color 1s ease-in-out, box-shadow 1s ease-in-out;
+    letter-spacing: 1px;
+}
+
+.project-description:hover {
+    border-radius: 5px;
+    background: rgba(28, 29, 46, 0.6);
+    box-shadow: 0 3px 6px rgba(250, 2, 2, 0.6);
+    color: #9b9a9a;
 }
 
 .project-description h3 {
@@ -296,15 +312,95 @@ ul li a:hover {
 
 /* Aplicar animación a las imágenes */
 .project-card-l img {
-    animation: float-t 3s ease-in-out infinite; /* Animación constante */
+    animation: float-t 3s ease-in-out infinite; /* Animación constante hacia arriba */
     transition: transform 0.5s;
 }
 
 .project-card-r img {
-    animation: float-b 2s ease-in-out infinite; /* Animación constante */
+    animation: float-b 2s ease-in-out infinite; /* Animación constante hacia abajo*/
     transition: transform 0.5s;
 }
 
-.project-card-r img:hover, .project-card-l img:hover {
-    transform: scale(1.1) translateY(-10px); /* Escala al pasar el mouse y sube un poco */
+/* Burbujas alrededor de las imágenes */
+.project-card-r::before, .project-card-l::before,
+.project-card-r::after, .project-card-l::after,
+.project-card-r .bubble1, .project-card-r .bubble2, 
+.project-card-l .bubble1, .project-card-l .bubble2 {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5); /* Color de las burbujas */
+    border-radius: 50%;
+    animation: floatAround 5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+/* Posiciona las burbujas alrededor de cada imagen */
+.project-card-r::before {
+    top: -20px;
+    left: -20px;
+    animation-delay: 0s;
+}
+.project-card-r::after {
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 2s;
+}
+
+/* Burbuja extra 1 para la tarjeta derecha */
+.project-card-r .bubble1 {
+    top: 20px;
+    left: -10px;
+    animation-delay: 1s;
+}
+
+/* Burbuja extra 2 para la tarjeta derecha */
+.project-card-r .bubble2 {
+    bottom: 10px;
+    right: -10px;
+    animation-delay: 3s;
+}
+
+.project-card-l::before {
+    top: -20px;
+    right: -20px;
+    animation-delay: 1s;
+}
+.project-card-l::after {
+    bottom: -20px;
+    left: -20px;
+    animation-delay: 3s;
+}
+
+/* Burbuja extra 1 para la tarjeta izquierda */
+.project-card-l .bubble1 {
+    top: 20px;
+    right: -10px;
+    animation-delay: 0s;
+}
+
+/* Burbuja extra 2 para la tarjeta izquierda */
+.project-card-l .bubble2 {
+    bottom: 10px;
+    left: -10px;
+    animation-delay: 2s;
+}
+
+@keyframes floatAround {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10px, -10px);
+    }
+    50% {
+        transform: translate(-10px, 10px);
+    }
+    75% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(-10px, -10px);
+    }
 }
