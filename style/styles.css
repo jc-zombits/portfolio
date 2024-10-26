@@ -193,6 +193,118 @@ ul li a:hover {
     text-shadow: 2px 2px 2px rgb(169, 161, 192);
     border-bottom: 2px solid;
     padding-bottom: 5px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    /*box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);*/
 }
 
+/* TARJETAS DE PROYECTOS */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio vertical entre filas */
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.projects-section h1 {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    letter-spacing: 2px;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* Espacio horizontal entre tarjeta y descripción */
+}
+
+.project-card-r {
+    width: 200px;
+    height: 200px;
+    transform: rotate(5deg);
+}
+
+.project-card-r img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.project-card-l {
+    width: 200px;
+    height: 200px;
+    transform: rotate(-5deg);
+}
+
+.project-card-l img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.project-description {
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(212, 6, 6, 0.4);
+}
+
+.project-description h3 {
+    margin: 0 0 10px;
+}
+
+.project-description p {
+    margin: 0;
+}
+
+/* Cambia el orden en filas pares */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Animación de flotación */
+@keyframes float-t {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Sube ligeramente */
+    }
+    100% {
+        transform: translateY(0); /* Vuelve a la posición inicial */
+    }
+}
+
+@keyframes float-b {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px); /* Sube ligeramente */
+    }
+    100% {
+        transform: translateY(0); /* Vuelve a la posición inicial */
+    }
+}
+
+/* Aplicar animación a las imágenes */
+.project-card-l img {
+    animation: float-t 3s ease-in-out infinite; /* Animación constante */
+    transition: transform 0.5s;
+}
+
+.project-card-r img {
+    animation: float-b 2s ease-in-out infinite; /* Animación constante */
+    transition: transform 0.5s;
+}
+
+.project-card-r img:hover, .project-card-l img:hover {
+    transform: scale(1.1) translateY(-10px); /* Escala al pasar el mouse y sube un poco */
+}
