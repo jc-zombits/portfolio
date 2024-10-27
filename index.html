@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>ZomBits - Portfolio</title>
+    <link rel="stylesheet" href="./fontawesome-free-6.6.0-web/css/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/styles.css">
 </head>
 <body>
     
     <nav class="nav-bar">
         <ul class="nav-ul">
-            <li class="nav-li"><a class="nav-a" href="#">Home</a></li>
+            <li class="nav-li"><a class="nav-a" href="/">Home</a></li>
             <li class="nav-li"><a class="nav-a" href="#">Projects</a></li>
             <li class="nav-li"><a class="nav-a" href="#">About</a></li>
             <li class="nav-li"><a class="nav-a" href="#">Contact</a></li>
@@ -118,6 +124,50 @@
             <div class="project-description">
                 <h3>Movie Catalog</h3>
                 <p>Este es un pequeño proyecto de catalogo de películas. Puedes crear, actualizar o eliminar, a demás de buscar o listar las películas disponibles. Es un proyecto de consola, aun no cuenta con una interfaz gráfica pero, pronto estará disponible. Este proyecto esta creado 100% con Python.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1 class="logo">Contact <span>Us</span></h1>
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3>Contact us</h3>
+                <form action="">
+                    <p>
+                        <label for="fullname">Fullname</label>
+                        <input type="text" name="fullname" id="fullname">
+                    </p>
+                    <p>
+                        <label>Email Address</label>
+                        <input type="email" name="email">
+                    </p>
+                    <p>
+                        <label>Phone</label>
+                        <input type="tel" name="phone">
+                    </p>
+                    <p>
+                        <label>Affair</label>
+                        <input type="text" name="affair">
+                    </p>
+                    <p class="block">
+                        <label>Message</label>
+                        <textarea name="message" rows="5"></textarea>
+                    </p>
+                    <p class="block">
+                        <button type="submit">Send</button>
+                    </p>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h4>More Info</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> My Street</li>
+                    <li><i class="fa-solid fa-phone"></i> 111 111 1111</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@mysite.com</li>
+                </ul>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fuga molestiae debitis dolor, quasi magnam itaque! Suscipit mollitia facilis nulla!</p>
+                <p>Company.com</p>
             </div>
         </div>
     </div>
